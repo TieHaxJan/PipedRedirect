@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Piped Redirect",
+  "version": "1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "PipedRedirect@janigma.de"
+    }
+  },
+  "description": "Redirects YouTube links to Piped instance",
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": ["contextMenus", "activeTab", "storage"],
+  "action": {
+    "default_icon": {
+      "48": "icon.png"
+    },
+    "default_popup": "./html/popup.html"
+  },
+  "background": {
+    "scripts": ["./js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/watch*"],
+      "js": ["./js/content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_ui": {
+    "page": "./html/options.html",
+    "open_in_tab": true
+  }
+}
