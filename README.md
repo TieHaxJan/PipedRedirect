@@ -10,13 +10,15 @@ To install this extension on your browser, follow these steps:
 
 1. Goto Releases and download the newest version.
 2. Open the Chrome/Opera browser and navigate to `chrome://extensions/`.
-3. Click on the gear icon and select `Install Add-On From File...` and select the `.xpi` file.
+3. Drag and Drop the `.crx` file into the browser window.
+4. Click on Install.
+
 
 ### Firefox
 
 1. Goto Releases and download the newest version.
 2. Open Firefox and navigate to `about:addons`.
-3. Click `Load Temporary Add-on...` and select the `manifest.json` within the `firefox` folder from the extracted project files.
+3. Click on the gear icon and select `Install Add-On From File...` and select the `.xpi` file.
 
 ## Installation (Temporary Only)
 
