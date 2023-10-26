@@ -1,6 +1,7 @@
 # Piped Redirect Extension
 
 The Piped Redirect extension allows users to redirect YouTube links to a Piped instance either through a context menu option, a popup button, or automatically based on their preferences. This project contains the implementation for both Chrome (also compatible with Opera) and Firefox.
+The idea came, because I wanted to enjoy the YouTube recommendation algorithm but bypass the new AdBlock Warning.
 
 ## Installation (Permanent)
 
