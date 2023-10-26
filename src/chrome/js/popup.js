@@ -6,7 +6,7 @@ document
       if (currentTab && currentTab.url && currentTab.url.startsWith("http")) {
         try {
           chrome.storage.sync.get("pipedHostname", function (data) {
-            const hostname = data.pipedHostname || "video.quantentoast.de"; // Use a default value if none is set
+            const hostname = data.pipedHostname || "piped.kavin.rocks"; // Use a default value if none is set
             var url = new URL(currentTab.url);
             if (url.hostname === "www.youtube.com") {
               url.hostname = hostname;

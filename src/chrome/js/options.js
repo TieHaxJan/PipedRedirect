@@ -12,7 +12,7 @@ document.getElementById("save").addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   chrome.storage.sync.get(["pipedHostname", "autoRedirect"], function (data) {
     document.getElementById("hostname").value =
-      data.pipedHostname || "video.quantentoast.de";
+      data.pipedHostname || "piped.kavin.rocks";
     document.getElementById("autoRedirect").checked =
       data.autoRedirect !== undefined ? data.autoRedirect : true;
   });

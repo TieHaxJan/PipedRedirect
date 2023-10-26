@@ -1,5 +1,5 @@
 chrome.storage.sync.get(["pipedHostname", "autoRedirect"], function (data) {
-  const hostname = data.pipedHostname || "video.quantentoast.de";
+  const hostname = data.pipedHostname || "piped.kavin.rocks";
   const autoRedirect =
     data.autoRedirect !== undefined ? data.autoRedirect : true;
   if (

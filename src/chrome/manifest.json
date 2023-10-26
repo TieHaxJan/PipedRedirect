@@ -4,7 +4,7 @@
     "version": "1.0",
     "description": "Redirects YouTube links to Piped instance",
     "icons": {
-      "48": "icon.png"
+      "48": "./common/icon.png"
     },
     "permissions": ["contextMenus", "activeTab", "storage"],
     "background": {
@@ -12,9 +12,9 @@
     },
     "action": {
         "default_icon": {
-            "48": "icon.png"
+            "48": "./common/icon.png"
           },
-      "default_popup": "./html/popup.html"
+      "default_popup": "./common/html/popup.html"
     },
     "content_scripts": [
       {
@@ -23,5 +23,5 @@
         "run_at": "document_start"
       }
     ],
-    "options_page": "./html/options.html"
+    "options_page": "./common/html/options.html"
 }
