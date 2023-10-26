@@ -20,6 +20,7 @@ To install this extension on your browser, follow these steps:
 1. Goto Releases and download the newest version.
 2. Open Firefox and navigate to `about:addons`.
 3. Click on the gear icon and select `Install Add-On From File...` and select the `.xpi` file.
+4. Naviagte to `www.youtube.com`, click on `Manage Extension` and `Always allow on youtube.com`. Otherwise the automatic redirection does not work.
 
 ## Installation (Temporary Only)
 
