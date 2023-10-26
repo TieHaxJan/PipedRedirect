@@ -1,29 +1,12 @@
-button {
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(171, 104, 255);;
-    color: white;
-    cursor: pointer;
-    width: 180px;  
-    white-space: nowrap; 
-    margin: 10px;
-    display: block;
-    width: 93%;
-}
-
-button:hover {
-    background-color: rgb(181, 114, 255);;
-}
-
-body  {
+body {
     font-family: Arial, sans-serif;
     font-size: 18px;
     margin: 0;
-    background-color: transparent;  
-    color: white; 
+    background-color: transparent;
+    color: white;
     background-color: #181818;
+    min-width: 200px; 
+    padding: 10px;  
 }
 
 header {
@@ -31,4 +14,22 @@ header {
     color: white;
     padding: 10px;
     text-align: center;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(171, 104, 255);
+    color: white;
+    cursor: pointer;
+    width: calc(100% - 20px); 
+    white-space: nowrap;
+    margin: 10px auto;
+    display: block;
+}
+
+button:hover {
+    background-color: rgb(181, 114, 255);
 }
