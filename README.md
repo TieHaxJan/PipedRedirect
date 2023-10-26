@@ -48,7 +48,7 @@ To configure the extension:
 
 1. Click on the extension icon in the toolbar.
 2. Click on `Options`.
-3. Enter the desired Piped hostname (default is `piped.kavin.rocks`).
+3. Enter the desired Piped hostname (default is `video.quantentoast.de`).
 4. Toggle the `Enable Automatic Redirection` checkbox to enable or disable automatic redirection of YouTube video pages.
 5. Click `Save` to save your preferences.
 
