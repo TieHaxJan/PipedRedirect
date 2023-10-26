@@ -1,4 +1,4 @@
-#redirectButton {
+button {
     font-size: 16px;
     padding: 10px 20px;
     border: none;
@@ -6,11 +6,14 @@
     background-color: rgb(171, 104, 255);;
     color: white;
     cursor: pointer;
-    width: 200px;  
+    width: 180px;  
     white-space: nowrap; 
+    margin: 10px;
+    display: block;
+    width: 93%;
 }
 
-#redirectButton:hover {
+button:hover {
     background-color: rgb(181, 114, 255);;
 }
 
@@ -19,5 +22,13 @@ body  {
     font-size: 18px;
     margin: 0;
     background-color: transparent;  
-    color: #FFFFFF; 
+    color: white; 
+    background-color: #181818;
+}
+
+header {
+    background-color: #181818;
+    color: white;
+    padding: 10px;
+    text-align: center;
 }

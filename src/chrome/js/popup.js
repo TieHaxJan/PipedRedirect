@@ -1,26 +1,32 @@
-document
-  .getElementById("redirectButton")
-  .addEventListener("click", function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      var currentTab = tabs[0];
-      if (currentTab && currentTab.url && currentTab.url.startsWith("http")) {
-        try {
-          chrome.storage.sync.get("pipedHostname", function (data) {
-            const hostname = data.pipedHostname || "piped.kavin.rocks"; // Use a default value if none is set
-            var url = new URL(currentTab.url);
-            if (url.hostname === "www.youtube.com") {
-              url.hostname = hostname;
-              chrome.tabs.update(currentTab.id, { url: url.href }); // Update the active tab's URL
-            } else {
-              alert("This is not a YouTube URL");
-            }
-          });
-        } catch (e) {
-          console.error(e);
-          alert("Invalid URL");
-        }
+function redirect(newTab) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      const currentTab = tabs[0];
+
+      if (currentTab && currentTab.url && currentTab.url.startsWith('http')) {
+          try {
+              chrome.storage.sync.get('pipedHostname', function(data) {
+                  const hostname = data.pipedHostname || 'piped.kavin.rocks';
+                  const urlObj = new URL(currentTab.url);
+                  if (urlObj.hostname === "www.youtube.com") {
+                      urlObj.hostname = hostname;
+                      if (newTab) {
+                          chrome.tabs.create({ url: urlObj.href });
+                      } else {
+                          chrome.tabs.update(currentTab.id, { url: urlObj.href });
+                      }
+                  } else {
+                      alert("This is not a YouTube URL");
+                  }
+              });
+          } catch (e) {
+              console.error(e);
+              alert("Invalid URL");
+          }
       } else {
-        alert("Not a valid URL");
+          alert("Not a valid URL");
       }
-    });
   });
+}
+
+document.getElementById('openInThisTab').addEventListener('click', () => redirect(false));
+document.getElementById('openInNewTab').addEventListener('click', () => redirect(true));
