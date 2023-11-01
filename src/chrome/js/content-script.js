@@ -1,13 +1,14 @@
-chrome.storage.sync.get(["pipedHostname", "autoRedirect"], function (data) {
-  const hostname = data.pipedHostname || "piped.kavin.rocks";
+chrome.storage.sync.get(['pipedHostname', 'autoRedirect'], function (data) {
+  const hostname = data.pipedHostname || 'piped.kavin.rocks'
   const autoRedirect =
-    data.autoRedirect !== undefined ? data.autoRedirect : true;
+    data.autoRedirect !== undefined ? data.autoRedirect : true
+  const location = window.location
   if (
     autoRedirect &&
-    window.location.hostname === "www.youtube.com" &&
-    window.location.pathname === "/watch"
+    location.hostname === 'www.youtube.com' &&
+    (location.pathname === '/watch' || location.pathname.startsWith('/shorts'))
   ) {
-    const newUrl = window.location.href.replace("www.youtube.com", hostname);
-    window.location.replace(newUrl);
+    const url = location.href.replace('www.youtube.com', hostname)
+    window.location.replace(url)
   }
-});
+})
