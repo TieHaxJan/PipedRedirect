@@ -1,3 +1,5 @@
+importScripts('../common/js/url-utils.js')
+
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: 'openInPiped',
@@ -6,15 +8,15 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 })
 
-chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === 'openInPiped') {
-    chrome.storage.sync.get('pipedHostname', function (data) {
-      const hostname = data.pipedHostname || 'piped.kavin.rocks'
-      const url = new URL(info.linkUrl)
-      if (url.hostname === 'www.youtube.com') {
-        url.hostname = hostname
-        chrome.tabs.create({ url: url.href })
-      }
-    })
-  }
+chrome.contextMenus.onClicked.addListener((info) => {
+  if (info.menuItemId !== 'openInPiped' || !info.linkUrl) return
+
+  chrome.storage.sync.get('pipedHostname', ({ pipedHostname }) => {
+    const hostname = pipedHostname || DEFAULT_PIPED_HOSTNAME
+    const pipedUrl = toPipedUrl(info.linkUrl, hostname)
+
+    if (pipedUrl) {
+      chrome.tabs.create({ url: pipedUrl })
+    }
+  })
 })

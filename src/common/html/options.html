@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Options</title>
-    <link rel="stylesheet" href="../css/options.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Piped Redirect Options</title>
+
+  <link rel="stylesheet" href="../css/options.css" />
 </head>
 <body>
-    <div>
-        <label for="hostname">Piped Hostname:</label>
-        <input type="text" id="hostname" name="hostname">
-        <label for="autoRedirect">
-            Enable Automatic Redirection:
-            <input type="checkbox" id="autoRedirect" name="autoRedirect">
-        </label>
-        <div class="button-container">
-            <button id="save">Save</button>
+  <main class="page">
+    <section class="card">
+      <header class="header">
+        <h1>Piped Redirect</h1>
+        <p>Choose your Piped instance and redirect behavior.</p>
+      </header>
+
+      <form id="optionsForm" class="form">
+        <div class="field">
+          <label for="hostname">Piped hostname</label>
+          <input
+            type="text"
+            id="hostname"
+            name="hostname"
+            placeholder="piped.video"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <p class="hint">Enter only the hostname, for example: piped.video</p>
         </div>
-    </div>
-    <script src="../../js/options.js"></script>
+
+        <label class="toggle-row" for="autoRedirect">
+          <span>
+            <strong>Automatic redirection</strong>
+            <small>Redirect YouTube videos and Shorts automatically.</small>
+          </span>
+
+          <input
+            type="checkbox"
+            id="autoRedirect"
+            name="autoRedirect"
+          />
+        </label>
+
+        <footer class="footer">
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+          <button type="submit" id="save">Save</button>
+        </footer>
+      </form>
+    </section>
+  </main>
+
+  <script src="../js/url-utils.js"></script>
+  <script src="../../js/options.js"></script>
 </body>
 </html>

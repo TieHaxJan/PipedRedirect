@@ -1,27 +1,33 @@
 {
-    "manifest_version": 3,
-    "name": "Piped Redirect",
-    "version": "1.2",
-    "description": "Redirects YouTube links to Piped instance",
-    "icons": {
+  "manifest_version": 3,
+  "name": "Piped Redirect",
+  "version": "1.3.0",
+  "description": "Redirects YouTube links to Piped instance",
+  "icons": {
+    "48": "./common/icon.png"
+  },
+  "permissions": ["contextMenus", "activeTab", "storage"],
+  "background": {
+    "service_worker": "./js/background.js"
+  },
+  "action": {
+    "default_icon": {
       "48": "./common/icon.png"
     },
-    "permissions": ["contextMenus", "activeTab", "storage"],
-    "background": {
-      "service_worker": "./js/background.js"
-    },
-    "action": {
-        "default_icon": {
-            "48": "./common/icon.png"
-          },
-      "default_popup": "./common/html/popup.html"
-    },
-    "content_scripts": [
-      {
-        "matches": ["*://www.youtube.com/*"],
-        "js": ["./js/content-script.js"],
-        "run_at": "document_start"
-      }
-    ],
-    "options_page": "./common/html/options.html"
+    "default_popup": "./common/html/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://youtube.com/*",
+        "*://www.youtube.com/*",
+        "*://m.youtube.com/*",
+        "*://music.youtube.com/*",
+        "*://youtu.be/*"
+      ],
+      "js": ["./common/js/url-utils.js", "./js/content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_page": "./common/html/options.html"
 }

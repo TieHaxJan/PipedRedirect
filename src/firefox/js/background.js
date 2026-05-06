@@ -6,14 +6,18 @@ browser.runtime.onInstalled.addListener(() => {
   })
 })
 
-browser.contextMenus.onClicked.addListener(async (info, tab) => {
-  if (info.menuItemId === 'openInPiped') {
-    let data = await browser.storage.sync.get('pipedHostname')
-    const hostname = data.pipedHostname || 'piped.kavin.rocks'
-    const url = new URL(info.linkUrl)
-    if (url.hostname === 'www.youtube.com') {
-      url.hostname = hostname
-      browser.tabs.create({ url: url.href })
+browser.contextMenus.onClicked.addListener(async (info) => {
+  if (info.menuItemId !== 'openInPiped' || !info.linkUrl) return
+
+  try {
+    const { pipedHostname } = await browser.storage.sync.get('pipedHostname')
+    const hostname = pipedHostname || DEFAULT_PIPED_HOSTNAME
+    const pipedUrl = toPipedUrl(info.linkUrl, hostname)
+
+    if (pipedUrl) {
+      await browser.tabs.create({ url: pipedUrl })
     }
+  } catch (error) {
+    console.error(error)
   }
 })

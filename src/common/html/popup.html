@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piped Redirect</title>
-    <link rel="stylesheet" href="../css/popup.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Piped Redirect</title>
+
+  <link rel="stylesheet" href="../css/popup.css" />
 </head>
 <body>
-    <header>
-        <h1>Piped Redirect</h1>
+  <main class="popup">
+    <header class="popup-header">
+      <div class="popup-title">
+        <img src="../icon.png" alt="" class="logo" />
+
+        <div>
+          <h1>Piped Redirect</h1>
+          <p>Open this YouTube video in Piped</p>
+        </div>
+      </div>
+
+      <button
+        id="openOptions"
+        class="icon-button"
+        type="button"
+        aria-label="Open settings"
+        title="Settings"
+      >
+        <svg
+          class="settings-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.28 7.28 0 0 0-1.69-.98L14.5 2.42A.5.5 0 0 0 14 2h-4a.5.5 0 0 0-.5.42L9.13 5.07c-.6.23-1.17.56-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64l2.11 1.65c-.04.32-.07.65-.07.98s.02.66.07.98l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46c.13.22.39.31.61.22l2.49-1c.52.42 1.09.75 1.69.98l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.6-.23 1.17-.56 1.69-.98l2.49 1c.22.09.48 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z" />
+        </svg>
+      </button>
     </header>
-    <button id="openInThisTab">Open in This Tab</button>
-    <button id="openInNewTab">Open in New Tab</button>
-    <script src="../../js/popup.js"></script>
+
+    <section class="actions" aria-label="Redirect actions">
+      <button id="openInThisTab" class="button button-primary">
+        This tab
+      </button>
+
+      <button id="openInNewTab" class="button button-secondary">
+        New tab
+      </button>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="../js/url-utils.js"></script>
+  <script src="../../js/popup.js"></script>
 </body>
 </html>
