@@ -119,6 +119,14 @@ Unsupported pages such as the YouTube homepage, search results, channels, and pl
 
 3. Enter your preferred Piped hostname.
 
+## How to build
+
+1. Install node and npm
+2. Execute `npm install` to install packages
+3. Execute `node build.js` to produce chrome and firefox extensions as zip, then import
+
+## TODOs
+
    Example:
 
    ```txt
