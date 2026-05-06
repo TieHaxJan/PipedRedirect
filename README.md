@@ -1,5 +1,20 @@
 # Piped Redirect Extension
 
+<p align="center">
+  <img src="./screenshots/logo.png" alt="Piped Redirect logo" width="128" height="128">
+</p>
+
+<p align="center">
+  <a href="https://chrome.google.com/webstore/detail/emocodejgchikhkgbjcegplgnoapgfgb">
+    <img src="https://img.shields.io/badge/Chrome%20Web%20Store-Available-4285F4?logo=googlechrome&logoColor=white" alt="Chrome Web Store">
+  </a>
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/pipedredirectjanigma/">
+    <img src="https://img.shields.io/badge/Firefox%20Add--ons-Available-FF7139?logo=firefoxbrowser&logoColor=white" alt="Firefox Add-ons">
+  </a>
+  <img src="https://img.shields.io/badge/Manifest-V3-7C3AED" alt="Manifest V3">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
+</p>
+
 Piped Redirect redirects supported YouTube video and Shorts links to a configurable [Piped](https://github.com/TeamPiped/Piped) instance.
 
 You can redirect links in three ways:
@@ -16,83 +31,37 @@ The idea came from wanting to keep using the YouTube recommendation algorithm wh
 
 ### Chrome / Chromium / Opera
 
-> Store listing coming soon.
-
-[Install from Chrome Web Store](https://chrome.google.com/webstore/detail/REPLACE_WITH_EXTENSION_ID)
-
-Until the Chrome Web Store version is available, you can install a release build manually:
-
-1. Go to the [Releases](../../releases) page.
-2. Download the latest Chrome build.
-3. Open `chrome://extensions/`.
-4. Enable **Developer mode**.
-5. Drag and drop the extension package into the browser window, or use **Load unpacked** for local development builds.
+[Install from Chrome Web Store](https://chrome.google.com/webstore/detail/emocodejgchikhkgbjcegplgnoapgfgb)
 
 ### Firefox
 
-> Add-on listing coming soon.
+[Install from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/pipedredirectjanigma/)
 
-[Install from Firefox Add-ons](https://addons.mozilla.org/firefox/addon/REPLACE_WITH_ADDON_SLUG)
+## Screenshots
 
-Firefox Release and Firefox Beta do **not** allow permanent installation of unsigned extensions. Firefox add-ons must be signed by Mozilla before they can be installed permanently in normal Firefox versions. Signing happens through addons.mozilla.org, either for listed AMO distribution or unlisted self-distribution. Temporary installation through `about:debugging` is still possible for development. See Mozilla’s signing and distribution documentation for details.  
-Sources: [Mozilla Extension Workshop — Signing and distribution](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/), [MozillaWiki — Extension Signing](https://wiki.mozilla.org/Add-ons/Extension_Signing)
+### Popup
 
-After installing the signed Firefox add-on:
+![Piped Redirect popup](./screenshots/addon.png)
 
-1. Open `www.youtube.com`.
-2. Click the extension icon or open the extension permissions menu.
-3. Allow the extension to run on YouTube if Firefox asks for site permission.
-4. Automatic redirection will only work after the extension has permission to access YouTube pages.
+### Settings
 
-## Temporary Development Installation
-
-Use this when testing local builds from this repository.
-
-### Chrome / Chromium / Opera
-
-1. Clone or download this repository.
-2. Build the extension.
-3. Open `chrome://extensions/`.
-4. Enable **Developer mode**.
-5. Click **Load unpacked**.
-6. Select the built Chrome folder, for example:
-
-    ```txt
-    build/chrome
-    ```
-
-Do not select only `src/chrome`, because the built extension also needs the shared `common` files.
-
-### Firefox
-
-1. Clone or download this repository.
-2. Build the extension.
-3. Open `about:debugging#/runtime/this-firefox`.
-4. Click **Load Temporary Add-on...**.
-5. Select:
-
-   ```txt
-   build/firefox/manifest.json
-   ```
-
-Temporary Firefox add-ons are removed when Firefox is restarted. For permanent installation in normal Firefox, the extension must be signed by Mozilla.
+![Piped Redirect settings](./screenshots/settings.png)
 
 ## Features
 
-* Redirect supported YouTube videos to a Piped instance.
-* Redirect supported YouTube Shorts to a Piped instance.
-* Open the current YouTube video in Piped from the extension popup.
-* Open the current YouTube video in the same tab or a new tab.
-* Right-click a supported YouTube link and open it in Piped.
-* Configure your preferred Piped hostname.
-* Enable or disable automatic redirection.
-* Supports common YouTube hosts such as:
-
-  * `www.youtube.com`
-  * `youtube.com`
-  * `m.youtube.com`
-  * `music.youtube.com`
-  * `youtu.be`
+- Redirect supported YouTube videos to a Piped instance.
+- Redirect supported YouTube Shorts to a Piped instance.
+- Open the current YouTube video in Piped from the extension popup.
+- Open the current YouTube video in the same tab or a new tab.
+- Right-click a supported YouTube link and open it in Piped.
+- Configure your preferred Piped hostname.
+- Enable or disable automatic redirection.
+- Supports common YouTube hosts such as:
+  - `www.youtube.com`
+  - `youtube.com`
+  - `m.youtube.com`
+  - `music.youtube.com`
+  - `youtu.be`
 
 ## Supported Redirects
 
@@ -119,14 +88,6 @@ Unsupported pages such as the YouTube homepage, search results, channels, and pl
 
 3. Enter your preferred Piped hostname.
 
-## How to build
-
-1. Install node and npm
-2. Execute `npm install` to install packages
-3. Execute `node build.js` to produce chrome and firefox extensions as zip, then import
-
-## TODOs
-
    Example:
 
    ```txt
@@ -142,6 +103,45 @@ The default Piped instance is:
 ```txt
 piped.video
 ```
+
+# Temporary Development Installation
+
+Use this when testing local builds from this repository.
+
+## Chrome / Chromium / Opera
+- Clone or download this repository.
+- Build the extension.
+- Open chrome://extensions/.
+- Enable Developer mode.
+- Click Load unpacked.
+
+Select the built Chrome folder, for example:
+```
+build/chrome
+```
+Do not select only src/chrome, because the built extension also needs the shared common files.
+
+## Firefox
+- Clone or download this repository.
+- Build the extension.
+- Open about:debugging#/runtime/this-firefox.
+- Click Load Temporary Add-on....
+
+Select:
+```
+build/firefox/manifest.json
+```
+Temporary Firefox add-ons are removed when Firefox is restarted. For permanent installation in normal Firefox, the extension must be signed by Mozilla.
+
+## How to build
+
+1. Install node and npm
+2. Execute `npm install` to install packages
+3. Execute `node build.js` to produce chrome and firefox extensions as zip, then import
+
+## TODOs
+
+- When opening a YouTube video in the same window, the page does not automatically get redirected.
 
 ## Build
 
@@ -161,43 +161,8 @@ The build output should look like this:
 
 ```txt
 build/
-  chrome/
   chrome.zip
-  firefox/
   firefox.zip
-```
-
-Use the unpacked folders for local testing:
-
-```txt
-build/chrome
-build/firefox
-```
-
-Use the ZIP files for store submission.
-
-## Publishing
-
-### Chrome Web Store
-
-The Chrome Web Store expects a ZIP package with `manifest.json` at the root of the archive. Upload the Chrome ZIP through the Chrome Developer Dashboard. Google’s publishing documentation describes the upload flow as choosing the ZIP file, uploading it, and then completing the store listing and privacy information.
-Source: [Chrome for Developers — Publish in the Chrome Web Store](https://developer.chrome.com/docs/webstore/publish)
-
-Planned listing:
-
-```md
-[Chrome Web Store](https://chrome.google.com/webstore/detail/REPLACE_WITH_EXTENSION_ID)
-```
-
-### Firefox Add-ons
-
-Firefox add-ons must be submitted through addons.mozilla.org for signing. This is required for permanent installation in Firefox Release and Beta, even if the add-on is distributed outside AMO as an unlisted add-on.
-Source: [Mozilla Extension Workshop — Signing and distribution](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/)
-
-Planned listing:
-
-```md
-[Firefox Add-ons](https://addons.mozilla.org/firefox/addon/REPLACE_WITH_ADDON_SLUG)
 ```
 
 ## Privacy
